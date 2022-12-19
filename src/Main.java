@@ -1,12 +1,12 @@
 public class Main {
     public static void main(String[] args) {
-        isLeapYear(2021);
-        returnVersion(1, 2015);
-        deliverGoods(95);
+        printLeapYear(2021);
+        printVersion(1,2020);
+        System.out.println("Потребуется дней на доставку " + calculateDeliveryDays(95));
 
     }
 
-    public static void isLeapYear(int year) {
+    public static void printLeapYear(int year) {
         System.out.println("Задание 1");
         if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
             System.out.println("Год високосный");
@@ -16,21 +16,21 @@ public class Main {
 
     }
 
-    public static void returnVersion(int osType, int currentYear) {
+    public static void printVersion(int osType, int clientDeviceYear) {
         System.out.println("Задание 2");
-        int clientDeviceYear = 2015;
-        if (osType == 0 && clientDeviceYear <= currentYear) {
+        int currentYear = 2022;
+        if (osType == 0 && clientDeviceYear > currentYear) {
             System.out.println("Установите приложения для iOS по ссылке");
-        } else if (osType == 0 && currentYear < clientDeviceYear) {
+        } else if (osType == 0 && clientDeviceYear <= currentYear) {
             System.out.println("Установите облегченную версию приложения для iOS по ссылке");
-        } else if (osType == 1 && clientDeviceYear <= currentYear) {
+        } else if (osType == 1 && clientDeviceYear > currentYear) {
             System.out.println("Установите приложения для Android по ссылке");
-        } else if (osType == 1 && currentYear < clientDeviceYear) {
+        } else if (osType == 1 && clientDeviceYear <= currentYear ) {
             System.out.println("Установите облегченную версию приложения для Android по ссылке");
         }
     }
 
-    public static void deliverGoods(int deliveryDistance) {
+    public static int  calculateDeliveryDays(int deliveryDistance) {
         System.out.println("Задание 3");
 
         int a = 1;
@@ -43,8 +43,7 @@ public class Main {
         if (deliveryDistance > 100) {
             a++;
         }
-        System.out.println("Потребуется дней на доставку = " + a);
-
+        return a;
     }
 
 }
